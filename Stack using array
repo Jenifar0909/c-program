@@ -1,0 +1,67 @@
+program 2 : Stack using array 
+#include <stdio.h>//  
+#define max 10 // maximum size of the stack 
+Int stack[max]; 
+Int top = -1; 
+// function to add an element to the stack 
+Void push(int value) { 
+if (top == max - 1) { 
+printf("stack overflow! Cannot push %d\n", value); }  
+else  
+{ 
+top++; 
+stack[top] = value; 
+printf("%d pushed to the stack.\n", value); 
+} 
+} 
+// function to remove the top element from the stack Void pop() { 
+if (top == -1)  
+{ 
+printf("stack underflow! Cannot pop.\n"); 
+}  
+else  
+{ 
+printf("%d popped from the stack.\n", stack[top]); top--; 
+} 
+} 
+// function to display the elements in the stack Void display() { 
+if (top == -1)  
+{ 
+printf("stack is empty.\n"); 
+}  
+else  
+{ 
+printf("stack elements: "); 
+for (int i = top; i >= 0; i--)  
+{ 
+printf("%d ", stack[i]); 
+} 
+printf("\n"); 
+}
+} 
+void main() { 
+int choice, value; 
+while (1)  
+{ 
+printf("\n1. Push\n2. Pop\n3. Display\n4. Exit\n"); printf("enter your choice: "); 
+scanf("%d", &choice); 
+switch (choice)  
+{ 
+case 1: 
+printf("enter value to push: "); 
+scanf("%d", &value); 
+push(value); 
+break; 
+case 2: 
+pop(); 
+break; 
+case 3: 
+display(); 
+break; 
+case 4: 
+printf("exiting...\n"); 
+return 0; 
+default: 
+printf("invalid choice! Please try again.\n"); } 
+} 
+}
