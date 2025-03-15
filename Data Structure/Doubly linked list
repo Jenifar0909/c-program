@@ -1,0 +1,31 @@
+#include<stdio.h>  
+#include<conio.h> 
+#include<stdlib.h>  
+struct node{ struct node *prev; int data; struct node *next; }; struct node *head=null,*temp,*ptr,*last;  
+void main() 
+{  
+int i; clrscr();  
+printf("\n enter the numbers to insert and 0 to stop"); 
+do  
+{  
+scanf("%d",&i); 
+if(i==0) 
+break;  
+temp=(struct node*)malloc(sizeof(struct node));  
+temp->prev=null;  
+temp->data=i;  
+temp->next=null;  
+ if(head==null)  
+head=last=temp;  
+ else  
+{  
+last->next=temp;  
+temp->prev=last;  
+last=temp;  
+}  
+ } while(1);  
+ printf("\n The Doubly Linked List is \n\n");  
+for(ptr=head;ptr!=null;ptr=ptr->next)  
+printf("%u <- %d -> %u",ptr->prev,ptr->data,ptr->next);  printf("0");  
+getch();  
+}
